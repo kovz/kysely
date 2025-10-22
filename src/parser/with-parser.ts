@@ -1,6 +1,7 @@
 import { UpdateQueryBuilder } from '../query-builder/update-query-builder.js'
 import { DeleteQueryBuilder } from '../query-builder/delete-query-builder.js'
 import { InsertQueryBuilder } from '../query-builder/insert-query-builder.js'
+import { MergeQueryBuilder } from '../query-builder/merge-query-builder.js'
 import { CommonTableExpressionNameNode } from '../operation-node/common-table-expression-name-node.js'
 import { QueryCreator } from '../query-creator.js'
 import { Expression } from '../expression/expression.js'
@@ -44,6 +45,7 @@ type CommonTableExpressionOutput<DB, CN extends string> =
       ExtractRowFromCommonTableExpressionName<CN>
     >
   | DeleteQueryBuilder<DB, any, ExtractRowFromCommonTableExpressionName<CN>>
+  | MergeQueryBuilder<DB, any, ExtractRowFromCommonTableExpressionName<CN>>
 
 /**
  * Given a common CommonTableExpression CTE extracts the row type from it.
